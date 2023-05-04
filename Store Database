@@ -1,0 +1,29 @@
+--Create a clothing store database 
+
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, season TEXT);
+
+INSERT INTO store VALUES (1, "shirts", 27, 15, "spring");
+INSERT INTO store VALUES (2, "shorts", 15, 20, "spring");
+INSERT INTO store VALUES (3, "sandals", 8, 10, "summer");
+INSERT INTO store VALUES (4, "hats", 12, 15, "winter");
+INSERT INTO store VALUES (5, "pants", 5, 30, "fall");
+INSERT INTO store VALUES (6, "scarves", 3, 10, "fall");
+INSERT INTO store VALUES (7, "sunglasses", 5, 18, "summer");
+INSERT INTO store VALUES (8, "earrings", 17, 20, "spring");
+INSERT INTO store VALUES (9, "tees", 14, 15, "summer");
+INSERT INTO store VALUES (10, "boots", 8, 45, "winter");
+INSERT INTO store VALUES (11, "socks", 9, 7, "winter");
+INSERT INTO store VALUES (12, "hairties", 40, 5, "spring");
+INSERT INTO store VALUES (13, "caridgans", 13, 13, "fall");
+INSERT INTO store VALUES (14, "coats", 7, 55, "winter");
+INSERT INTO store VALUES (15, "necklaces", 18, 23, "spring");
+
+--Display data base ordered by price
+
+SELECT * FROM store ORDER BY price;
+
+--What is the sum of the items in the store?
+
+SELECT SUM(price) FROM store;
+
