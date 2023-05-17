@@ -1,0 +1,46 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE authors (id integer primary key, name TEXT, book TEXT, rating INTEGER);
+
+INSERT INTO authors VALUES (1, "J.K. Rowling", "Harry Potter", 5);
+INSERT INTO authors VALUES (2, "Sara J. Maas", "ACOTAR", 5);
+INSERT INTO authors VALUES (3, "George R.R. Martin", "Game of Thrones", 4);
+INSERT INTO authors VALUES (4, "C.S. Lewis", "Chronicles of Narnia", 5);
+INSERT INTO authors VALUES (5, "Emily Henry", "Happy Place", 4);
+INSERT INTO authors VALUES (6, "Taylor Jenkins Reid", "Malibu Rising", 4); 
+INSERT INTO authors VALUES (7, "Erin Morgenstern", "Night Circus", 5); 
+
+CREATE TABLE bio (id INTEGER PRIMARY KEY, author_name TEXT, age INTEGER, country TEXT, gender TEXT); 
+
+INSERT INTO bio VALUES (1, "J.K. Rowling", 57, "United Kingdom", "female");
+INSERT INTO bio VALUES (2, "Sara J. Maas", 37, "United States", "female");
+INSERT INTO bio VALUES (3, "George R.R. Martin", 74, "United States", "male");
+INSERT INTO bio VALUES (4, "C.S. Lewis", 65, "United Kingdom", "male");
+INSERT INTO bio VALUES (5, "Emily Henry", 31, "United States", "female");
+INSERT INTO bio VALUES (6, "Taylor Jenkins Reid", 39, "United States", "female");
+INSERT INTO bio VALUES (7, "Erin Morgenstern", 44, "United States", "female");
+
+CREATE TABLE genres (id INTEGER PRIMARY KEY, author_name TEXT, genre TEXT);
+
+INSERT INTO genres VALUES (1, "J.K. Rowling", "fantasy");
+INSERT INTO genres VALUES (2, "Sara J. Maas", "fantasy");
+INSERT INTO genres VALUES (3, "George R.R. Martin", "fantasy");
+INSERT INTO genres VALUES (4, "C.S. Lewis", "fantasy");
+INSERT INTO genres VALUES (5, "Emily Henry", "romance");
+INSERT INTO genres VALUES (6, "Taylor Jenkins Reid", "historical fiction");
+INSERT INTO genres VALUES (7, "Erin Morgenstern", "fantasy"); 
+
+/* What are the names of the authors, their books, and the genres? */
+
+SELECT authors.name, authors.book, genres.genre FROM authors
+JOIN genres
+ON authors.name= genres.author_name;
+
+/*Which authors are from the United Kingdom and what genres do they write?*/
+
+SELECT authors.name, genres.genre, bio.country from authors
+JOIN genres
+ON authors.name = genres.author_name
+INNER JOIN bio
+ON authors.name = bio.author_name
+WHERE country= "United Kingdom";
